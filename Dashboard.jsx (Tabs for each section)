@@ -1,0 +1,28 @@
+import React, { useState } from 'react';
+import StatsCard from './StatsCard';
+import RegionalOverview from './RegionalOverview';
+import ShopPerformance from './ShopPerformance';
+import SalesAnalytics from './SalesAnalytics';
+import InventoryDashboard from './InventoryDashboard';
+
+const Dashboard = () => {
+  const [activeTab, setActiveTab] = useState('overview');
+
+  return (
+    <div>
+      <StatsCard />
+      <nav style={{ margin: '1rem 0' }}>
+        <button onClick={() => setActiveTab('overview')}>Regional Overview</button>
+        <button onClick={() => setActiveTab('shop')}>Shop Performance</button>
+        <button onClick={() => setActiveTab('sales')}>Sales Analytics</button>
+        <button onClick={() => setActiveTab('inventory')}>Inventory</button>
+      </nav>
+      {activeTab === 'overview' && <RegionalOverview />}
+      {activeTab === 'shop' && <ShopPerformance />}
+      {activeTab === 'sales' && <SalesAnalytics />}
+      {activeTab === 'inventory' && <InventoryDashboard />}
+    </div>
+  );
+};
+
+export default Dashboard;
