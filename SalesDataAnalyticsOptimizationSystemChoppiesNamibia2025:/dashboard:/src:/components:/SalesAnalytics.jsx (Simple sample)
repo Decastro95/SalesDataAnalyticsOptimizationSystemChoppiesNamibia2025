@@ -1,0 +1,32 @@
+import React from 'react';
+
+const salesData = [
+  { quarter: 'Q1', revenue: 9000000 },
+  { quarter: 'Q2', revenue: 8500000 },
+  { quarter: 'Q3', revenue: 8000000 },
+  { quarter: 'Q4', revenue: 10500000 },
+];
+
+const SalesAnalytics = () => (
+  <section>
+    <h2>Sales Analytics</h2>
+    <table border="1" cellPadding="8" style={{ width: '100%', marginTop: '1rem' }}>
+      <thead>
+        <tr>
+          <th>Quarter</th>
+          <th>Revenue (N$)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {salesData.map((d) => (
+          <tr key={d.quarter}>
+            <td>{d.quarter}</td>
+            <td>{d.revenue.toLocaleString()}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </section>
+);
+
+export default SalesAnalytics;
